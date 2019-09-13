@@ -44,8 +44,8 @@ void ImageWidget::genImage()
 	vec3 lower_left_corner(-2.0, -1.0, -1.0);
 
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {
-		for (int h = DEFAULT_HEIGHT - 1; h > 0; h--) {
-			QPoint p(w, h);
+		for (int h = DEFAULT_HEIGHT - 1; h >= 0; h--) {
+			QPoint p(w, DEFAULT_HEIGHT - h - 1);
 			float u = float(w) / float(DEFAULT_WIDTH);
 			float v = float(h) / float(DEFAULT_HEIGHT);
 			ray r(origin, lower_left_corner + u * horizontal + v * vertical);
