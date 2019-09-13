@@ -1,4 +1,5 @@
 ﻿#include "ImageWidget.h"
+using namespace RTXW;
 
 const int DEFAULT_WIDTH  = 200;
 const int DEFAULT_HEIGHT = 100;

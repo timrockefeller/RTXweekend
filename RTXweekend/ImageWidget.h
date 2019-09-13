@@ -30,7 +30,7 @@ protected:
 	void paintEvent(QPaintEvent *paintevent);
 
 private:
-	void drawPixel(QPoint p, vec3 c) {
+	void drawPixel(QPoint p, RTXW::vec3 c) {
 		ptr_image_->setPixelColor(p, QColor(int(255.99*c.r()), int(255.99*c.g()), int(255.99*c.b())));
 	}
 	
