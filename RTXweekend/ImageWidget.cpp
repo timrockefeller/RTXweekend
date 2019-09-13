@@ -1,15 +1,15 @@
 ﻿#include "ImageWidget.h"
 using namespace RTXW;
 
-const int DEFAULT_WIDTH  = 200;
+const int DEFAULT_WIDTH = 200;
 const int DEFAULT_HEIGHT = 100;
 
 ImageWidget::ImageWidget()
 {
-	
+
 	ptr_image_ = new QImage(DEFAULT_WIDTH, DEFAULT_HEIGHT, QImage::Format::Format_RGB32);
 	genImage();
-	
+
 }
 
 
@@ -44,7 +44,7 @@ void ImageWidget::genImage()
 	vec3 lower_left_corner(-2.0, -1.0, -1.0);
 
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {
-		for (int h = 0; h < DEFAULT_HEIGHT; h++) {
+		for (int h = DEFAULT_HEIGHT - 1; h > 0; h--) {
 			QPoint p(w, h);
 			float u = float(w) / float(DEFAULT_WIDTH);
 			float v = float(h) / float(DEFAULT_HEIGHT);
