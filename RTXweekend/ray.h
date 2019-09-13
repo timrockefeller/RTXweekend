@@ -13,7 +13,7 @@ namespace RTXW {
 
 		vec3 origin() const { return A; }
 		vec3 direction() const { return B; }
-		vec3 pointAt(float t) { return A + t * B; }
+		vec3 pointAt(float t) const { return A + t * B; }
 
 		vec3 A;
 		vec3 B;
