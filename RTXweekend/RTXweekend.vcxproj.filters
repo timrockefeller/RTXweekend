@@ -68,5 +68,8 @@
     <ClInclude Include="ray.h">
       <Filter>Header Files\Util</Filter>
     </ClInclude>
+    <ClInclude Include="util.h">
+      <Filter>Header Files\Util</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

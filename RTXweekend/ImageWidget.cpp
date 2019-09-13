@@ -37,13 +37,19 @@ void ImageWidget::paintEvent(QPaintEvent *paintevent)
 
 void ImageWidget::genImage()
 {
+	vec3 origin(0.0);
+	vec3 horizontal(4.0, 0.0, 0.0);
+	vec3 vertical(0.0, 2.0, 0.0);
+	vec3 lower_left_corner(-2.0, -1.0, -1.0);
+
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {
 		for (int h = 0; h < DEFAULT_HEIGHT; h++) {
 			QPoint p(w, h);
-			float r = float(w) / float(DEFAULT_WIDTH);
-			float g = float(h) / float(DEFAULT_HEIGHT);
-			float b = 0.2f;
-			drawPixel(p, vec3(r, g, b));
+			float u = float(w) / float(DEFAULT_WIDTH);
+			float v = float(h) / float(DEFAULT_HEIGHT);
+			ray r(origin, lower_left_corner + u * horizontal + v * vertical);
+			vec3 c = color(r);
+			drawPixel(p, c);
 		}
 	}
 	update();

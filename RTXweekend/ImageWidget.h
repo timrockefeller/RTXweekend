@@ -6,6 +6,10 @@
 #include <QPainter>
 
 #include "vec3.h"
+#include "ray.h"
+
+#include "util.h"
+
 QT_BEGIN_NAMESPACE
 class QImage;
 class QPainter;
@@ -35,4 +39,3 @@ private:
 
 	QPoint image_offset_;
 };
-

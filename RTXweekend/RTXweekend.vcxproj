@@ -129,6 +129,7 @@
   <ItemGroup>
     <ClInclude Include="ImageWidget.h" />
     <ClInclude Include="ray.h" />
+    <ClInclude Include="util.h" />
     <ClInclude Include="vec3.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
