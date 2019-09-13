@@ -49,7 +49,7 @@ void ImageWidget::genImage()
 			float u = float(w) / float(DEFAULT_WIDTH);
 			float v = float(h) / float(DEFAULT_HEIGHT);
 			ray r(origin, lower_left_corner + u * horizontal + v * vertical);
-			vec3 c = color(r);
+			vec3 c = U::color(r);
 			drawPixel(p, c);
 		}
 	}
