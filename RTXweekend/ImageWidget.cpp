@@ -1,8 +1,5 @@
 ﻿#include "ImageWidget.h"
 
-#include <QImage>
-#include <qcolor.h>
-#include <QPainter>
 const int DEFAULT_WIDTH  = 200;
 const int DEFAULT_HEIGHT = 100;
 
@@ -16,8 +13,7 @@ ImageWidget::ImageWidget()
 			float r = float(w) / float(DEFAULT_WIDTH);
 			float g = float(h) / float(DEFAULT_HEIGHT);
 			float b = 0.2f;
-			QColor c(int(255.99*r),int(255.99*g),int(255.99*b));
-			ptr_image_->setPixelColor(p,c);
+			drawPixel(p, vec3(r, g, b));
 		}
 	}
 	update();
