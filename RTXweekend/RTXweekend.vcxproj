@@ -113,6 +113,7 @@
     </QtRcc>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="hitable.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="RTXweekend.cpp" />
@@ -127,8 +128,11 @@
     <QtRcc Include="RTXweekend.qrc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="hitable.h" />
+    <ClInclude Include="hitablelist.h" />
     <ClInclude Include="ImageWidget.h" />
     <ClInclude Include="ray.h" />
+    <ClInclude Include="sphere.h" />
     <ClInclude Include="util.h" />
     <ClInclude Include="vec3.h" />
   </ItemGroup>

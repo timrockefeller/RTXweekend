@@ -10,6 +10,9 @@
 
 #include "util.h"
 
+#include "hitablelist.h"
+#include "sphere.h"
+
 QT_BEGIN_NAMESPACE
 class QImage;
 class QPainter;
