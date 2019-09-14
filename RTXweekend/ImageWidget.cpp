@@ -1,4 +1,4 @@
-#include "ImageWidget.h"
+﻿#include "ImageWidget.h"
 using namespace RTXW;
 
 const int DEFAULT_WIDTH = 200;
@@ -9,7 +9,7 @@ ImageWidget::ImageWidget()
 
 	ptr_image_ = new QImage(DEFAULT_WIDTH, DEFAULT_HEIGHT, QImage::Format::Format_RGB32);
 	genImage();
-
+	image_zoom_ = 4.0;
 }
 
 
@@ -29,10 +29,10 @@ void ImageWidget::paintEvent(QPaintEvent *paintevent)
 	painter.drawRect(back_rect);
 
 	// Draw image
-	QRect rect = QRect((width() - ptr_image_->width()) / 2, (height() - ptr_image_->height()) / 2, ptr_image_->width(), ptr_image_->height());
+	QRect rect = QRect((width() - image_zoom_ * ptr_image_->width()) / 2, (height() - image_zoom_ * ptr_image_->height()) / 2, image_zoom_ * ptr_image_->width(), image_zoom_ * ptr_image_->height());
 	painter.drawImage(rect, *ptr_image_);
-	image_offset_.setX((width() - ptr_image_->width()) / 2);
-	image_offset_.setY((height() - ptr_image_->height()) / 2);
+	image_offset_.setX((width() - image_zoom_ * ptr_image_->width()) / 2);
+	image_offset_.setY((height() - image_zoom_ * ptr_image_->height()) / 2);
 	painter.end();
 }
 

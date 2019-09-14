@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include <qwidget.h>
 
 #include <QImage>
@@ -42,4 +42,6 @@ private:
 	QImage		*ptr_image_;
 
 	QPoint image_offset_;
+	float image_zoom_;
+
 };
