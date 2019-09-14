@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include<cmath>
 namespace RTXW {
 	class vec3
