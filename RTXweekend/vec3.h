@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #include<cmath>
 namespace RTXW {
 	class vec3
@@ -141,5 +141,11 @@ namespace RTXW {
 			return true;
 		}
 		else return false;
+	}
+
+	inline float schlick(float cosine, float ref_idx) {
+		float r0 = (1 - ref_idx) / (1 + ref_idx);
+		r0 *= r0;
+		return r0 + (1 - r0)*pow(1 - cosine, 5);
 	}
 }

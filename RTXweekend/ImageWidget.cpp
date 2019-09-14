@@ -53,12 +53,13 @@ void ImageWidget::genImage()
 {
 	camera cam;
 
-	hitable *list[4];
+	hitable *list[5];
 	list[0] = new sphere(vec3(0, 0, -1), 0.5, new lambertain(vec3(0.8, 0.3, 0.3)));
 	list[1] = new sphere(vec3(0, -100.5, -1), 100, new lambertain(vec3(0.8, 0.8, 0.0)));
 	list[2] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.8), 0.3));
 	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new dielectric(1.5));
-	hitablelist *world = new hitablelist(list, 4);
+	list[4] = new sphere(vec3(-1, 0, -1), -0.45, new dielectric(1.5));
+	hitablelist *world = new hitablelist(list, 5);
 
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {
 		for (int h = DEFAULT_HEIGHT - 1; h >= 0; h--) {
