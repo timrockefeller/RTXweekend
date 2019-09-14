@@ -1,4 +1,4 @@
-﻿#include "hitable.h"
+#include "hitable.h"
 #include "sphere.h"
 #include "hitablelist.h"
 

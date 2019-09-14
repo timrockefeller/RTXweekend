@@ -16,4 +16,8 @@ namespace RTXW {
 			return (1.0 - t) * vec3(1.0) + t * vec3(0.5, 0.7, 1.0);
 		}
 	};
+
+	inline double drand() {
+		return rand() / (RAND_MAX + 1.0);
+	}
 }

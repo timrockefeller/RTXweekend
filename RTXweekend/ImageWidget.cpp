@@ -1,5 +1,5 @@
-﻿#include "ImageWidget.h"
-#include <cstdlib>
+#include "ImageWidget.h"
+
 
 using namespace RTXW;
 
@@ -53,8 +53,8 @@ void ImageWidget::genImage()
 			QPoint p(w, DEFAULT_HEIGHT - h - 1);
 			vec3 c(0);
 			for (size_t s = 0; s < SAMPLES_PER_PIXEL; s++) {
-				float u = (float(w) + rand() / (RAND_MAX + 1.0)) / float(DEFAULT_WIDTH);
-				float v = (float(h) + rand() / (RAND_MAX + 1.0)) / float(DEFAULT_HEIGHT);
+				float u = (float(w) + drand()) / float(DEFAULT_WIDTH);
+				float v = (float(h) + drand()) / float(DEFAULT_HEIGHT);
 				c+= U::color(cam.getRay(u, v), world);
 			}
 			c /= SAMPLES_PER_PIXEL;
