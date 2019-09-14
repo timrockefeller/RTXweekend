@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include<cmath>
 namespace RTXW {
 	class vec3
@@ -130,5 +130,16 @@ namespace RTXW {
 		e[1] /= t;
 		e[2] /= t;
 		return *this;
+	}
+
+	inline bool refract(const vec3& v, const vec3& n, float ni_over_nt, vec3& refracted) {
+		vec3 uv = normal(v);
+		float dt = dot(uv, n);
+		float discriminant = 1.0 - ni_over_nt * ni_over_nt*(1 - dt * dt);
+		if (discriminant > 0) {
+			refracted = ni_over_nt * (uv - n * dt) - n * sqrt(discriminant);
+			return true;
+		}
+		else return false;
 	}
 }

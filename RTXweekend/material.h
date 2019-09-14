@@ -21,4 +21,12 @@ namespace RTXW {
 		vec3 albedo;
 		float fuzz;
 	};
+
+	class dielectric: public material { // glass
+	public:
+		dielectric(float ref_idx_) : ref_idx(ref_idx_) {}
+		virtual bool scatter(const ray& r_in, const hit_record& rec, vec3& attenuation, ray& scattered) const;
+		float ref_idx;
+	};
+
 }

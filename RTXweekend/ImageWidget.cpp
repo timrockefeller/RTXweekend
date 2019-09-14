@@ -3,8 +3,8 @@
 
 using namespace RTXW;
 
-const int DEFAULT_WIDTH = 400;
-const int DEFAULT_HEIGHT = 200;
+const int DEFAULT_WIDTH = 200;
+const int DEFAULT_HEIGHT = 100;
 const int SAMPLES_PER_PIXEL = 100;
 
 ImageWidget::ImageWidget()
@@ -13,7 +13,7 @@ ImageWidget::ImageWidget()
 	ptr_image_ = new QImage(DEFAULT_WIDTH, DEFAULT_HEIGHT, QImage::Format::Format_RGB32);
 	update();
 	genImage();
-	image_zoom_ = 2.0;
+	image_zoom_ = 4.0;
 }
 
 
@@ -57,7 +57,7 @@ void ImageWidget::genImage()
 	list[0] = new sphere(vec3(0, 0, -1), 0.5, new lambertain(vec3(0.8, 0.3, 0.3)));
 	list[1] = new sphere(vec3(0, -100.5, -1), 100, new lambertain(vec3(0.8, 0.8, 0.0)));
 	list[2] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.8), 0.3));
-	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new metal(vec3(0.8, 0.6, 0.2), 1));
+	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new dielectric(1.5));
 	hitablelist *world = new hitablelist(list, 4);
 
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {
