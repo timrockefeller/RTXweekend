@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include<cmath>
 namespace RTXW {
 	class vec3
@@ -87,6 +87,9 @@ namespace RTXW {
 	}
 	inline vec3 normal(const vec3 & v) {
 		return v / v.length();
+	}
+	inline vec3 sqrtv(const vec3 & v) {
+		return vec3(sqrt(v[0]), sqrt(v[1]), sqrt(v[2]));
 	}
 
 	inline vec3& vec3::operator+=(const vec3 &v2) {

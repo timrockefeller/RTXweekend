@@ -39,6 +39,15 @@ void ImageWidget::paintEvent(QPaintEvent *paintevent)
 	painter.end();
 }
 
+void ImageWidget::drawPixel(QPoint p, RTXW::vec3 c) {
+	c = sqrtv(c);
+	ptr_image_->setPixelColor(p, QColor(
+		int(255.99*c.r()), 
+		int(255.99*c.g()), 
+		int(255.99*c.b())
+	));
+}
+
 void ImageWidget::genImage()
 {
 	camera cam;
