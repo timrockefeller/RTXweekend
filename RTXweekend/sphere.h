@@ -6,9 +6,10 @@ namespace RTXW {
 	{
 	public:
 		sphere() = default;
-		sphere(vec3 center_, float radius_) {
+		sphere(vec3 center_, float radius_, material* mat_) {
 			center = center_;
 			radius = radius_;
+			mat = mat_;
 		}
 		~sphere() = default;
 
@@ -16,6 +17,7 @@ namespace RTXW {
 
 		vec3 center;
 		float radius;
+		material* mat;
 	};
 }
 

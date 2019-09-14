@@ -3,16 +3,17 @@
 
 using namespace RTXW;
 
-const int DEFAULT_WIDTH = 200;
-const int DEFAULT_HEIGHT = 100;
+const int DEFAULT_WIDTH = 400;
+const int DEFAULT_HEIGHT = 200;
 const int SAMPLES_PER_PIXEL = 100;
 
 ImageWidget::ImageWidget()
 {
 
 	ptr_image_ = new QImage(DEFAULT_WIDTH, DEFAULT_HEIGHT, QImage::Format::Format_RGB32);
+	update();
 	genImage();
-	image_zoom_ = 4.0;
+	image_zoom_ = 2.0;
 }
 
 
@@ -42,8 +43,8 @@ void ImageWidget::paintEvent(QPaintEvent *paintevent)
 void ImageWidget::drawPixel(QPoint p, RTXW::vec3 c) {
 	c = sqrtv(c);
 	ptr_image_->setPixelColor(p, QColor(
-		int(255.99*c.r()), 
-		int(255.99*c.g()), 
+		int(255.99*c.r()),
+		int(255.99*c.g()),
 		int(255.99*c.b())
 	));
 }
@@ -52,10 +53,12 @@ void ImageWidget::genImage()
 {
 	camera cam;
 
-	hitable *list[2];
-	list[0] = new sphere(vec3(0, 0, -1), 0.5);
-	list[1] = new sphere(vec3(0, -100.5, -1), 100);
-	hitablelist *world = new hitablelist(list, 2);
+	hitable *list[4];
+	list[0] = new sphere(vec3(0, 0, -1), 0.5, new lambertain(vec3(0.8, 0.3, 0.3)));
+	list[1] = new sphere(vec3(0, -100.5, -1), 100, new lambertain(vec3(0.8, 0.8, 0.0)));
+	list[2] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.8), 0.3));
+	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new metal(vec3(0.8, 0.6, 0.2), 1));
+	hitablelist *world = new hitablelist(list, 4);
 
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {
 		for (int h = DEFAULT_HEIGHT - 1; h >= 0; h--) {
@@ -64,7 +67,7 @@ void ImageWidget::genImage()
 			for (size_t s = 0; s < SAMPLES_PER_PIXEL; s++) {
 				float u = (float(w) + drand()) / float(DEFAULT_WIDTH);
 				float v = (float(h) + drand()) / float(DEFAULT_HEIGHT);
-				c+= U::color(cam.getRay(u, v), world);
+				c += U::color(cam.getRay(u, v), world);
 			}
 			c /= SAMPLES_PER_PIXEL;
 			drawPixel(p, c);

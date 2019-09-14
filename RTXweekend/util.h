@@ -2,6 +2,7 @@
 #include "vec3.h"
 #include "ray.h"
 #include "hitable.h"
+#include "material.h"
 namespace RTXW {
 	inline double drand() {
 		return rand() / (RAND_MAX + 1.0);
@@ -18,12 +19,17 @@ namespace RTXW {
 		}
 
 
-		static  vec3 color(const ray &r, hitable* world) {
+		static  vec3 color(const ray &r, hitable* world,int depth=0) {
 
 			hit_record rec;
-			if (world->hit(r, 0.0, INFINITY, rec)) {
-				vec3 target = rec.p + rec.normal + random_in_unit_sphere();
-				return 0.5*color(ray(rec.p, target - rec.p), world);
+			if (world->hit(r, 0.001, INFINITY, rec)) {
+				ray scattered;
+				vec3 attenuation;
+				if (depth < 50 && rec.mat_ptr->scatter(r, rec, attenuation, scattered))
+				{
+					return attenuation * color(scattered, world, depth + 1);
+				}
+				return vec3(0);
 			}
 			vec3 direction_nor = normal(r.direction()); // skybox
 			float t = 0.5*(direction_nor.y() + 1.0);

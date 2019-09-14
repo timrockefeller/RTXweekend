@@ -116,6 +116,7 @@
     <ClCompile Include="hitable.cpp" />
     <ClCompile Include="ImageWidget.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="material.cpp" />
     <ClCompile Include="RTXweekend.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -132,6 +133,7 @@
     <ClInclude Include="hitable.h" />
     <ClInclude Include="hitablelist.h" />
     <ClInclude Include="ImageWidget.h" />
+    <ClInclude Include="material.h" />
     <ClInclude Include="ray.h" />
     <ClInclude Include="sphere.h" />
     <ClInclude Include="util.h" />

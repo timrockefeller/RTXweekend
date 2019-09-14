@@ -91,6 +91,9 @@ namespace RTXW {
 	inline vec3 sqrtv(const vec3 & v) {
 		return vec3(sqrt(v[0]), sqrt(v[1]), sqrt(v[2]));
 	}
+	inline vec3 reflect(const vec3& v, const vec3& n) {
+		return v - 2 * dot(v, n)*n;
+	}
 
 	inline vec3& vec3::operator+=(const vec3 &v2) {
 		e[0] += v2[0];
