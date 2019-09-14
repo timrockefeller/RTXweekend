@@ -1,4 +1,4 @@
-﻿#include "ImageWidget.h"
+#include "ImageWidget.h"
 using namespace RTXW;
 
 const int DEFAULT_WIDTH = 200;
@@ -38,10 +38,7 @@ void ImageWidget::paintEvent(QPaintEvent *paintevent)
 
 void ImageWidget::genImage()
 {
-	vec3 origin(0.0);
-	vec3 horizontal(4.0, 0.0, 0.0);
-	vec3 vertical(0.0, 2.0, 0.0);
-	vec3 lower_left_corner(-2.0, -1.0, -1.0);
+	camera cam;
 
 	hitable *list[2];
 	list[1] = new sphere(vec3(0, 0, -1), 0.5);
@@ -53,8 +50,7 @@ void ImageWidget::genImage()
 			QPoint p(w, DEFAULT_HEIGHT - h - 1);
 			float u = float(w) / float(DEFAULT_WIDTH);
 			float v = float(h) / float(DEFAULT_HEIGHT);
-			ray r(origin, lower_left_corner + u * horizontal + v * vertical);
-			vec3 c = U::color(r, world);
+			vec3 c = U::color(cam.getRay(u, v), world);
 			drawPixel(p, c);
 		}
 	}

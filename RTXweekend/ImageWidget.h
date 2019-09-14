@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include <qwidget.h>
 
 #include <QImage>
@@ -9,6 +9,7 @@
 #include "ray.h"
 
 #include "util.h"
+#include "camera.h"
 
 #include "hitablelist.h"
 #include "sphere.h"
