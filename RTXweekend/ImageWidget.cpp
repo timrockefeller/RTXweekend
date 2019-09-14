@@ -1,4 +1,4 @@
-#include "ImageWidget.h"
+﻿#include "ImageWidget.h"
 
 
 using namespace RTXW;
@@ -44,8 +44,8 @@ void ImageWidget::genImage()
 	camera cam;
 
 	hitable *list[2];
-	list[1] = new sphere(vec3(0, 0, -1), 0.5);
-	list[0] = new sphere(vec3(0, -100.5, -1), 100);
+	list[0] = new sphere(vec3(0, 0, -1), 0.5);
+	list[1] = new sphere(vec3(0, -100.5, -1), 100);
 	hitablelist *world = new hitablelist(list, 2);
 
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {

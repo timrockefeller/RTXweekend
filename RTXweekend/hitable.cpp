@@ -1,4 +1,4 @@
-#include "hitable.h"
+﻿#include "hitable.h"
 #include "sphere.h"
 #include "hitablelist.h"
 
@@ -10,7 +10,7 @@ bool hitablelist::hit(const ray& r, float t_min, float t_max, hit_record& rec) c
 	bool hit_anything = false;
 	float closest_so_far = t_max;
 	for (size_t i = 0; i < list_size; i++) {
-		if (list[i]->hit(r, t_min, t_max, temprec)) {
+		if (list[i]->hit(r, t_min, closest_so_far, temprec)) {
 			hit_anything = true;
 			closest_so_far = temprec.t;
 			rec = temprec;
