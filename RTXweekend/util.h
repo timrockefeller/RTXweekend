@@ -43,8 +43,8 @@ namespace RTXW {
 			hitable **list = new hitable*[n + 1];
 			list[0] = new sphere(vec3(0, -1000, 0), 1000, new lambertain(vec3(0.5)));
 			int i = 1;
-			for (int a = -11; a < 11; a += 5) {
-				for (int b = -11; b < 11; b += 5) {
+			for (int a = -11; a < 11; a++) {
+				for (int b = -11; b < 11; b++) {
 					float choose_mat = drand();
 					vec3 center(a + 0.9*drand(), 0.2, b + 0.9*drand());
 					if ((center - vec3(4, 0.2, 0)).length() > 0.9) {

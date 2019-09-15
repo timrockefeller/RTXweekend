@@ -3,9 +3,9 @@
 
 using namespace RTXW;
 
-const int DEFAULT_WIDTH = 100;
-const int DEFAULT_HEIGHT = 50;
-const int SAMPLES_PER_PIXEL = 100;
+const int DEFAULT_WIDTH = 400;
+const int DEFAULT_HEIGHT = 200;
+const int SAMPLES_PER_PIXEL = 10;
 
 ImageWidget::ImageWidget()
 {
@@ -13,7 +13,7 @@ ImageWidget::ImageWidget()
 	ptr_image_ = new QImage(DEFAULT_WIDTH, DEFAULT_HEIGHT, QImage::Format::Format_RGB32);
 	update();
 	genImage();
-	image_zoom_ = 4.0;
+	image_zoom_ = 2.0;
 }
 
 
@@ -51,10 +51,10 @@ void ImageWidget::drawPixel(QPoint p, RTXW::vec3 c) {
 
 void ImageWidget::genImage()
 {
-	vec3 lookfrom(1, 0.5, 0);
-	vec3 lookto(0, 0, -1);
-	float aperture = 2.0;
-	camera cam(lookfrom, lookto, vec3(0, 1, 0), 60, float(DEFAULT_WIDTH) / float(DEFAULT_HEIGHT), aperture, (lookfrom - lookto).length());
+	vec3 lookfrom(13, 2, 3);
+	vec3 lookto(0, 0, 0);
+	float aperture = 0.1;
+	camera cam(lookfrom, lookto, vec3(0, 1, 0), 20, float(DEFAULT_WIDTH) / float(DEFAULT_HEIGHT), aperture, 10);
 	
 	hitable * world = U::random_scene();
 
