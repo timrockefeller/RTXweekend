@@ -4,8 +4,8 @@
 
 using namespace RTXW;
 
-const int DEFAULT_WIDTH = 400;
-const int DEFAULT_HEIGHT = 200;
+const int DEFAULT_WIDTH = 800;
+const int DEFAULT_HEIGHT = 600;
 const int SAMPLES_PER_PIXEL = 10;
 
 ImageWidget::ImageWidget()
@@ -13,7 +13,7 @@ ImageWidget::ImageWidget()
 
 	ptr_image_ = new QImage(DEFAULT_WIDTH, DEFAULT_HEIGHT, QImage::Format::Format_RGB32);
 	update();
-	image_zoom_ = 2.0;
+	image_zoom_ = 1.0;
 }
 
 
