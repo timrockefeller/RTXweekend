@@ -43,9 +43,9 @@ namespace RTXW {
 		inline vec3& normalize();
 
 		float e[3];
-
 	};
 
+	
 	inline vec3& vec3::normalize() {
 		float k = 1.0 / length();
 		e[0] *= k; e[1] *= k; e[2] *= k;
