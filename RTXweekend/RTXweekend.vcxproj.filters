@@ -56,6 +56,9 @@
     <QtMoc Include="RTXweekend.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="ImageWidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <QtUic Include="RTXweekend.ui">
@@ -82,9 +85,6 @@
     </ClInclude>
     <ClInclude Include="hitable.h">
       <Filter>Header Files\Util</Filter>
-    </ClInclude>
-    <ClInclude Include="ImageWidget.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="hitablelist.h">
       <Filter>Header Files\Util\hitobjets</Filter>

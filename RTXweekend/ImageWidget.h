@@ -25,6 +25,7 @@ QT_END_NAMESPACE
 class ImageWidget :
 	public QWidget
 {
+	Q_OBJECT
 public:
 	ImageWidget();
 	~ImageWidget();
