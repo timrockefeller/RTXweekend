@@ -28,7 +28,10 @@ class ImageWidget :
 public:
 	ImageWidget();
 	~ImageWidget();
+	
+public slots:
 	void genImage();
+	void saveImage();
 
 protected:
 	void paintEvent(QPaintEvent *paintevent);

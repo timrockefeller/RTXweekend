@@ -10,8 +10,17 @@ class RTXweekend : public QMainWindow
 
 public:
 	RTXweekend(QWidget *parent = Q_NULLPTR);
-
+private slots:
 private:
+
+	void CreateActions();
+
+
 	Ui::RTXweekendClass ui;
 	ImageWidget		*imagewidget_;
+
+
+	QToolBar	*toolbar_;
+	QAction		*action_gen_;
+	QAction		*action_save_;
 };

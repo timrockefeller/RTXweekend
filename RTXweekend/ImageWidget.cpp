@@ -1,5 +1,6 @@
 ﻿#include "ImageWidget.h"
 
+#include <QtWidgets> 
 
 using namespace RTXW;
 
@@ -12,7 +13,6 @@ ImageWidget::ImageWidget()
 
 	ptr_image_ = new QImage(DEFAULT_WIDTH, DEFAULT_HEIGHT, QImage::Format::Format_RGB32);
 	update();
-	genImage();
 	image_zoom_ = 2.0;
 }
 
@@ -72,4 +72,10 @@ void ImageWidget::genImage()
 		}
 	}
 	update();
+}
+
+void ImageWidget::saveImage()
+{
+	QString filename = QFileDialog::getSaveFileName(this, tr("Save Image"), ".", tr("Images(*.bmp *.png *.jpg)"));
+	ptr_image_->save("output.png");
 }
