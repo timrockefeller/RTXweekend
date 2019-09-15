@@ -3,8 +3,8 @@
 
 using namespace RTXW;
 
-const int DEFAULT_WIDTH = 200;
-const int DEFAULT_HEIGHT = 100;
+const int DEFAULT_WIDTH = 100;
+const int DEFAULT_HEIGHT = 50;
 const int SAMPLES_PER_PIXEL = 100;
 
 ImageWidget::ImageWidget()
@@ -51,14 +51,12 @@ void ImageWidget::drawPixel(QPoint p, RTXW::vec3 c) {
 
 void ImageWidget::genImage()
 {
-	camera cam(vec3(-2, 2, 1), vec3(0, 0, -1), vec3(0, 1, 0), 90, float(DEFAULT_WIDTH) / float(DEFAULT_HEIGHT));
-	hitable *list[5];
-	list[0] = new sphere(vec3(0, 0, -1), 0.5, new lambertain(vec3(0.8, 0.3, 0.3)));
-	list[1] = new sphere(vec3(0, -100.5, -1), 100, new lambertain(vec3(0.8, 0.8, 0.0)));
-	list[2] = new sphere(vec3(1, 0, -1), 0.5, new metal(vec3(0.8), 0.3));
-	list[3] = new sphere(vec3(-1, 0, -1), 0.5, new dielectric(1.5));
-	list[4] = new sphere(vec3(-1, 0, -1), -0.45, new dielectric(1.5));
-	hitablelist *world = new hitablelist(list, 5);
+	vec3 lookfrom(1, 0.5, 0);
+	vec3 lookto(0, 0, -1);
+	float aperture = 2.0;
+	camera cam(lookfrom, lookto, vec3(0, 1, 0), 60, float(DEFAULT_WIDTH) / float(DEFAULT_HEIGHT), aperture, (lookfrom - lookto).length());
+	
+	hitable * world = U::random_scene();
 
 	for (int w = 0; w < DEFAULT_WIDTH; w++) {
 		for (int h = DEFAULT_HEIGHT - 1; h >= 0; h--) {
